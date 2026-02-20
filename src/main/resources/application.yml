@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: serverwatch
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/serverwatch?serverTimezone=Asia/Seoul&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: serverwatch
+    password: serverwatch123!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+
+
+admin:
+  username: admin
+  password: 1234
+  secret: something
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace

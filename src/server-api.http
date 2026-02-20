@@ -1,0 +1,19 @@
+### 서버 등록 (POST /api/server)
+POST http://localhost:8080/api/server
+Authorization: Basic YWRtaW46MTIzNA==
+Content-Type: application/json
+
+{
+"name": "App Server 1",
+"description": "웹 애플리케이션 서버"
+}
+
+
+### 서버 목록 조회 (GET /api/server)
+GET http://localhost:8080/api/server
+Authorization: Basic YWRtaW46MTIzNA==
+
+
+### 서버 상세 조회 (GET /api/server/{id})
+GET http://localhost:8080/api/server/1
+Authorization: Basic YWRtaW46MTIzNA==

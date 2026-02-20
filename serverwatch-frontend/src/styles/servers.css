@@ -1,0 +1,234 @@
+/* =========================================================
+   /servers 전용 레이아웃
+   로그인 / 회원가입처럼 가운데 정렬
+   ========================================================= */
+
+/* 서버 페이지 전체 래퍼 */
+.servers-page {
+  min-height: 100vh;
+}
+
+/* 헤더를 화면 가운데에 두기 */
+.servers-header {
+  display: flex;
+  justify-content: center;   /* ⭐ 수평 가운데 */
+}
+
+/* 메인 영역을 화면 가운데에 두기 */
+.servers-main {
+  display: flex;
+  justify-content: center;   /* ⭐ 수평 가운데 */
+  padding: 32px 24px 40px;
+}
+
+/* 실제 콘텐츠 폭 제한 */
+.servers-container {
+  width: 100%;
+  max-width: 960px;          /* 목록 기준 폭 */
+}
+
+/* 헤더 안에서 로고와 버튼을 양 끝으로 정렬 */
+.servers-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 상세 페이지는 조금 더 넓게 */
+.servers-container--detail {
+  max-width: 1200px;
+}
+
+/* ===== 상단 타이틀 영역 ===== */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.page-title-main {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.page-title-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ===== 서버 목록 카드 ===== */
+
+.server-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.server-card {
+  padding: 14px 16px 12px;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
+    rgba(15, 23, 42, 0.98);
+  border: 1px solid rgba(30, 64, 175, 0.7);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 1);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.server-card:hover {
+  transform: translateY(-3px) translateX(1px);
+  border-color: var(--accent-strong);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 1.05);
+}
+
+.server-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.server-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.server-host {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.server-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(15, 23, 42, 0.9);
+  padding-top: 6px;
+  margin-top: 6px;
+}
+
+/* ===== 서버 상세 페이지 ===== */
+
+.server-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+.server-detail-name {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.server-detail-host {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.server-detail-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* 메트릭 카드 그리드: 2 × 2 */
+.server-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* 메트릭 카드 하나 */
+.server-detail-card {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%),
+    rgba(15, 23, 42, 0.98);
+  border: 1px solid rgba(30, 64, 175, 0.7);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 1);
+}
+
+.server-detail-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.server-detail-card-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.server-detail-card-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.server-detail-card-current {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.server-detail-card-body {
+  font-size: 13px;
+}
+
+/* ===== 반응형 ===== */
+
+@media (max-width: 768px) {
+  .servers-main {
+    padding: 16px 16px 24px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .page-header .button-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .server-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .server-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .servers-main {
+    padding: 12px 12px 20px;
+  }
+
+  .server-card {
+    padding: 12px 12px 10px;
+  }
+
+  .page-title-main {
+    font-size: 18px;
+  }
+
+  .page-title-sub {
+    font-size: 12px;
+  }
+}
