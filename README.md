@@ -103,12 +103,15 @@ docker ps
 
 ## 🔎 API 테스트 예시
 
+> ⚠ 아래 계정 정보는 예시용 더미 데이터입니다.  
+> 실제 사용 시에는 로컬 환경에서 회원가입 후 테스트하시기 바랍니다.
+
 ### 📝 회원가입
 
 ```bash
 curl -X POST http://localhost:8080/api/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"username":"admin","email":"admin@test.com","password":"admin1234"}'
+  -d '{"username":"demo","email":"demo@example.com","password":"P@ssw0rd!123"}'
 ```
 
 
@@ -118,7 +121,7 @@ curl -X POST http://localhost:8080/api/auth/register \
 ```bash
 curl -X POST http://localhost:8080/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"username":"admin","password":"admin1234"}'
+  -d '{"username":"demo","password":"P@ssw0rd!123"}'
 ```
 
 
