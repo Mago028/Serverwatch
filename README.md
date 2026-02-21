@@ -3,7 +3,7 @@
 > 📡 Spring Boot 기반 서버 모니터링 시스템  
 > 서버 메트릭을 주기적으로 수집·저장하고 웹에서 조회할 수 있도록 구현한 프로젝트
 
----
+
 
 ## 📌 프로젝트 개요
 
@@ -17,7 +17,7 @@ Serverwatch는 서버 상태(CPU, Memory, Disk, Load Average 등)를
 - ⚙ 환경 변수(.env) 분리
 - 🌍 실제 배포 가능한 구조 설계
 
----
+
 
 ## 🛠 기술 스택
 
@@ -28,7 +28,7 @@ Serverwatch는 서버 상태(CPU, Memory, Disk, Load Average 등)를
 | 🐳 Infra | Docker, Docker Compose |
 | 💻 Frontend | React (Vite + TypeScript) |
 
----
+
 
 ## ⚙ 주요 기능
 
@@ -39,7 +39,7 @@ Serverwatch는 서버 상태(CPU, Memory, Disk, Load Average 등)를
 - 인증이 필요한 API 보호 처리
 - Stateless 인증 구조
 
----
+
 
 ### 🖥 서버 관리
 
@@ -47,7 +47,7 @@ Serverwatch는 서버 상태(CPU, Memory, Disk, Load Average 등)를
 - 서버 목록 조회
 - 서버 상태 조회
 
----
+
 
 ### 📊 메트릭 수집
 
@@ -57,7 +57,7 @@ Serverwatch는 서버 상태(CPU, Memory, Disk, Load Average 등)를
 - Load Average
 - 30초 주기 스케줄링 기반 자동 수집
 
----
+
 
 ## 🏗 시스템 아키텍처
 
@@ -71,7 +71,7 @@ Serverwatch는 서버 상태(CPU, Memory, Disk, Load Average 등)를
 [ Metric Scheduler (30초 주기 실행) ]
 ```
 
----
+
 
 ## 🚀 실행 방법
 
@@ -83,7 +83,7 @@ cp .env.example .env
 
 `.env` 파일에 DB 정보 및 JWT_SECRET을 입력합니다.
 
----
+
 
 ### 🐳 Docker Compose 실행
 
@@ -91,7 +91,7 @@ cp .env.example .env
 docker compose up -d --build
 ```
 
----
+
 
 ### ✅ 실행 확인
 
@@ -99,7 +99,7 @@ docker compose up -d --build
 docker ps
 ```
 
----
+
 
 ## 🔎 API 테스트 예시
 
@@ -111,7 +111,7 @@ curl -X POST http://localhost:8080/api/auth/register \
   -d '{"username":"admin","email":"admin@test.com","password":"admin1234"}'
 ```
 
----
+
 
 ### 🔑 로그인 (JWT 발급)
 
@@ -121,7 +121,7 @@ curl -X POST http://localhost:8080/api/auth/login \
   -d '{"username":"admin","password":"admin1234"}'
 ```
 
----
+
 
 ### 🔓 인증 API 호출
 
@@ -130,7 +130,7 @@ curl http://localhost:8080/api/servers \
   -H "Authorization: Bearer <JWT_TOKEN>"
 ```
 
----
+
 
 ## 🧯 트러블슈팅
 
@@ -149,7 +149,7 @@ curl http://localhost:8080/api/servers \
 - Slack Webhook 제거
 - 환경 변수 분리 및 커밋 히스토리 정리
 
----
+
 
 ## 📈 향후 개선 방향
 
@@ -158,7 +158,7 @@ curl http://localhost:8080/api/servers \
 - 🔄 GitHub Actions 기반 CI/CD 구성
 - 🌐 Nginx + HTTPS 적용
 
----
+
 
 ## 👨‍💻 프로젝트 회고
 
