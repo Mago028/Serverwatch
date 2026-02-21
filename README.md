@@ -23,10 +23,13 @@ Serverwatch는 서버 상태(CPU, Memory, Disk, Load Average 등)를
 
 | 구분 | 기술 |
 |------|------|
-| 🧠 Backend | Spring Boot, Spring Security (JWT), JPA (Hibernate) |
-| 🗄 Database | MySQL |
-| 🐳 Infra | Docker, Docker Compose |
-| 💻 Frontend | React (Vite + TypeScript) |
+| **Language** | Java 17, TypeScript |
+| **Backend** | Spring Boot, Spring Security (JWT), JPA (Hibernate) |
+| **Frontend** | React (Vite) |
+| **Build / Tooling** | Gradle |
+| **Database** | MySQL |
+| **Infra** | Docker, Docker Compose |
+| **OS / Environment** | Ubuntu (배포 예정), Windows (개발), Docker Desktop / WSL2 |
 
 
 
@@ -61,15 +64,22 @@ Serverwatch는 서버 상태(CPU, Memory, Disk, Load Average 등)를
 
 ## 🏗 시스템 아키텍처
 
-```bash
-[ React Frontend ]
-        ↓
-[ Spring Boot API Server ]
-        ↓
-[ MySQL Database ]
-        ↑
-[ Metric Scheduler (30초 주기 실행) ]
-```
+<img src="docs/serverwatch_sysarchitecture.png" alt="Serverwatch Architecture" width="800"/>
+
+### 🔄 동작 흐름
+
+1. 사용자는 React 프론트엔드에서 로그인 후 JWT 토큰을 발급받습니다.
+2. 이후 모든 API 요청은 JWT를 포함하여 Spring Boot 서버로 전달됩니다.
+3. 서버는 인증을 검증한 뒤 요청을 처리하고 MySQL에 데이터를 저장합니다.
+4. Metric Scheduler가 30초 주기로 시스템 메트릭을 수집하여 DB에 기록합니다.
+5. 저장된 데이터는 API를 통해 조회 및 시각화됩니다.
+
+### 🧠 설계 포인트
+
+- Stateless 구조 (JWT 기반 인증)
+- Scheduler 기반 주기적 데이터 수집
+- Docker Compose로 App + DB 통합 실행
+- 환경 변수 분리로 배포 환경 대응
 
 
 
