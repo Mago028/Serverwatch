@@ -31,19 +31,10 @@ Serverwatch는 서버 상태(CPU, Memory, Disk, Load Average 등)를
 | **Infra** | Docker, Docker Compose |
 | **OS / Environment** | Ubuntu (배포 예정), Windows (개발), Docker Desktop / WSL2 |
 
-## 🖼 Screenshots
+## 🖼 UI 화면
 
-### 🔐 Login
-<img src="docs/login.png" width="800"/>
+<img src="docs/screenshot.png" width="800"/>
 
-### 📝 Register
-<img src="docs/register.png" width="800"/>
-
-### 📋 Server List
-<img src="docs/server-list.png" width="800"/>
-
-### 📊 Server Detail
-<img src="docs/server-detail.png" width="800"/>
 
 ## ⚙ 주요 기능
 
